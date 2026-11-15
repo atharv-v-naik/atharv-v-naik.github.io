@@ -1,0 +1,796 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atharv Naik · Software engineer</title>
+<meta name="description" content="Atharv Naik builds software from the kernel up to the screen: Android apps, backends, ML pipelines, and M.Tech research at IIT Bombay on finding why software runs slow.">
+<meta name="theme-color" content="#EEF3FF">
+<meta property="og:title" content="Atharv Naik · Software engineer">
+<meta property="og:description" content="I build software from the kernel up to the screen.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='11' fill='%23B9CEFA'/%3E%3Crect y='11' width='64' height='11' fill='%2394B0F2'/%3E%3Crect y='22' width='64' height='10' fill='%235F7FDB'/%3E%3Crect y='32' width='64' height='11' fill='%232A3C8F'/%3E%3Crect y='43' width='64' height='21' fill='%23080C26'/%3E%3Crect x='26' y='6' width='12' height='52' rx='6' fill='%23FFB000'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Atharv Naik","jobTitle":"Software engineer","alumniOf":"IIT Bombay","sameAs":["https://github.com/atharv3903/","https://www.linkedin.com/in/atharv-naik-427a4b315/"]}</script>
+<style>
+:root{
+  --sky:#EEF3FF; --b0:#DCE7FF; --b1:#B9CEFA; --b2:#94B0F2; --b3:#5F7FDB; --b4:#2A3C8F; --b5:#121B4E; --deep:#080C26;
+  --ink:#0B1433; --ink2:#34426E; --amber:#FFB000;
+  --light:#EAF0FF; --light2:#AEBCEE;
+  --disp:"Big Shoulders Display",Impact,"Arial Narrow",sans-serif;
+  --text:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:400 18px/1.62 var(--text);color:var(--ink);background:var(--deep);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration-thickness:1.5px;text-underline-offset:4px}
+a:hover{text-decoration-color:var(--amber)}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:4px}
+::selection{background:var(--amber);color:var(--ink)}
+.wrap{max-width:1140px;margin:0 auto;padding:0 32px}
+@media(max-width:600px){.wrap{padding:0 18px}}
+.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;z-index:99;background:var(--amber);color:var(--ink);padding:8px 14px}
+
+/* ---------- strata bands ---------- */
+.s{position:relative;padding:118px 0 128px}
+.surface{background:var(--sky);padding:0 0 110px}
+#kernel{background:var(--b4);color:var(--light)}
+#data{background:var(--b2)}
+#services{background:var(--b1)}
+#screen{background:var(--b0)}
+#contact{background:var(--deep);color:var(--light);padding-bottom:70px}
+.dark .muted{color:var(--light2)}
+.muted{color:var(--ink2)}
+
+/* ---------- top bar ---------- */
+.top{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:26px 0 0;font-weight:600;font-size:15.5px}
+.top nav{display:flex;gap:24px;flex-wrap:wrap}
+.top a{text-decoration:none}
+.top a:hover{text-decoration:underline}
+@media(max-width:560px){.top nav a:nth-child(n+3){display:none}}
+
+/* ---------- hero ---------- */
+.kicker{font-weight:600;font-size:16px;margin:84px 0 22px;color:var(--ink2)}
+.name{margin:0 0 44px;font:900 clamp(80px,15.2vw,214px)/.8 var(--disp);text-transform:uppercase;letter-spacing:-.005em;
+  background:linear-gradient(180deg,#5F7FDB 0 17%,#4762C6 17% 34%,#2F45A0 34% 51%,#1E2C77 51% 68%,#121B4E 68% 85%,#080C26 85%);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.name span{display:inline-block;margin-right:.18em}
+.name span:last-child{margin-right:0}
+@media(min-width:640px){.name{white-space:nowrap}}
+.intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px 48px;align-items:center;margin-bottom:64px}
+.introtext .tagline{margin-bottom:22px}
+.tagline{font:700 clamp(30px,3.6vw,46px)/1.08 var(--text);letter-spacing:-.025em;margin:0}
+.blurb{margin:0 0 22px;color:var(--ink2);font-size:18.5px}
+@media(max-width:900px){.intro{grid-template-columns:1fr}}
+
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;font:600 16px var(--text);padding:13px 22px;border-radius:999px;background:var(--ink);color:#fff;text-decoration:none;border:2px solid var(--ink);transition:background .18s,color .18s,border-color .18s,transform .18s}
+.btn:hover{background:var(--amber);border-color:var(--amber);color:var(--ink);transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:inherit;border-color:currentColor}
+.btn.ghost:hover{background:var(--amber);border-color:var(--amber);color:var(--ink)}
+.dark .btn{background:var(--light);color:var(--ink);border-color:var(--light)}
+.dark .btn:hover{background:var(--amber);border-color:var(--amber)}
+.dark .btn.ghost{background:transparent;color:var(--light);border-color:var(--light)}
+.dark .btn.ghost:hover{background:var(--amber);color:var(--ink);border-color:var(--amber)}
+
+/* ---------- core-sample chart ---------- */
+.corebox{border-radius:24px;overflow:hidden;background:var(--deep);color:var(--light);box-shadow:0 40px 80px -40px rgba(11,20,51,.75)}
+.corehead{display:flex;justify-content:space-between;align-items:center;gap:14px 28px;flex-wrap:wrap;padding:22px 26px 18px}
+.corehead p{margin:0;font-size:16px;color:var(--light2);max-width:34em}
+.corehead p b{color:var(--light);font-weight:700}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:14px;font-weight:600}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.legend i{width:22px;height:10px;border-radius:99px}
+.k-research{background:linear-gradient(90deg,#FFB000,#FFD36B)}
+.k-course{background:linear-gradient(90deg,#6E92F2,#A9C2FF)}
+.k-intern{background:linear-gradient(90deg,#9FB4E8,#D7E3FF)}
+.k-self{background:linear-gradient(90deg,#DCE7FF,#FFFFFF)}
+.scroller{overflow-x:auto}
+.core{display:grid;grid-template-columns:150px repeat(6,minmax(78px,1fr));grid-auto-rows:46px;min-width:700px;padding:0 26px 22px;position:relative}
+.colhd{grid-row:1;align-self:end;padding:0 0 10px 10px;font:700 18px var(--disp);text-transform:uppercase;letter-spacing:.03em;border-left:1px solid rgba(234,240,255,.14)}
+.colbg{grid-row:2 / -1;border-left:1px solid rgba(234,240,255,.14)}
+.colbg.c0{background:rgba(95,127,219,.30)}.colbg.c1{background:rgba(95,127,219,.24)}.colbg.c2{background:rgba(95,127,219,.18)}.colbg.c3{background:rgba(95,127,219,.13)}.colbg.c4{background:rgba(95,127,219,.08)}.colbg.c5{background:rgba(95,127,219,.04)}
+.kind2{grid-column:1;align-self:center;font-size:13.5px;color:var(--light2);padding-right:12px;line-height:1.25}
+.bar{align-self:center;height:34px;margin:0 6px;border:0;border-radius:999px;color:var(--ink);cursor:pointer;z-index:2;text-align:left;padding:0 16px;
+  font:700 15px var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transform-origin:left center;
+  transition:transform .18s,box-shadow .18s,filter .18s;animation:grow .8s cubic-bezier(.22,.8,.25,1) both;animation-delay:calc(250ms + var(--i)*65ms)}
+.bar:hover,.bar[aria-pressed="true"]{transform:translateY(-2px);box-shadow:0 0 0 3px var(--deep),0 0 0 5px var(--amber),0 10px 26px -6px rgba(255,176,0,.55)}
+.core.focus .bar:not([aria-pressed="true"]):not(:hover){filter:saturate(.4) brightness(.62)}
+@keyframes grow{from{transform:scaleX(0);opacity:.2}to{transform:scaleX(1);opacity:1}}
+.readout{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 28px;align-items:end;padding:20px 26px 24px;border-top:1px solid rgba(234,240,255,.16);min-height:118px}
+.readout h3{margin:0;font:900 38px/1 var(--disp);text-transform:uppercase}
+.readout .span{font-weight:600;font-size:15px;color:var(--amber);margin:6px 0 6px}
+.readout p{margin:0;color:var(--light)}
+.readout .btn{background:transparent;color:var(--light);border-color:var(--light)}
+.readout .btn:hover{background:var(--amber);border-color:var(--amber);color:var(--ink)}
+@media(max-width:700px){.readout{grid-template-columns:1fr}.corehead,.readout{padding-left:18px;padding-right:18px}.core{grid-template-columns:0 repeat(6,minmax(0,1fr));min-width:0;padding:0 14px 18px;grid-auto-rows:40px}.kind2{display:none}.colhd{font-size:13px;letter-spacing:0;padding:0 0 8px 4px}.bar{height:30px;margin:0 3px;padding:0 10px;font-size:13px}}
+
+/* ---------- layer headers ---------- */
+.lh{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:14px 48px;margin-bottom:64px;padding-bottom:26px;border-bottom:2px solid currentColor}
+.lh .lvl{flex:1 0 100%;margin:0;font-weight:700;font-size:15px;letter-spacing:.01em}
+.lh h2{margin:0;font:900 clamp(72px,12vw,168px)/.8 var(--disp);text-transform:uppercase}
+.lh .what{flex:1 1 240px;max-width:21em;margin:0 0 6px auto;font-size:21px;text-align:right}
+@media(max-width:820px){.lh .what{text-align:left;flex-basis:100%}}
+
+/* ---------- projects ---------- */
+h3.pt{margin:0 0 4px;font:900 clamp(40px,5vw,58px)/.92 var(--disp);text-transform:uppercase}
+.kind{margin:0 0 16px;font-weight:600;font-size:15.5px}
+.tech{margin:14px 0 0;font-style:italic;font-size:16px}
+.links{display:flex;flex-wrap:wrap;gap:18px;margin:14px 0 0;font-weight:600;font-size:16px}
+.items{display:grid;grid-template-columns:1fr 1fr;gap:64px 56px}
+.item{border-top:6px solid var(--ink);padding-top:22px}
+.item p{margin:0 0 .8em}
+.dark .item{border-top-color:var(--light)}
+@media(max-width:820px){.items{grid-template-columns:1fr}}
+.item.wide{grid-column:1/-1}
+
+/* flow diagrams */
+.flow{list-style:none;margin:18px 0 6px;padding:0;display:flex;flex-wrap:wrap;gap:12px 34px}
+.flow li{position:relative;padding:8px 14px;border:2px solid var(--ink);border-radius:10px;background:rgba(255,255,255,.55);font-weight:600;font-size:15px;line-height:1.3}
+.flow li:not(:last-child)::after{content:"";position:absolute;right:-27px;top:50%;width:18px;height:2px;background:var(--ink)}
+.flow li:not(:last-child)::before{content:"";position:absolute;right:-28px;top:calc(50% - 4px);border:5px solid transparent;border-left:7px solid var(--ink);border-right:0}
+.flow li.hot{background:var(--amber);border-color:var(--ink)}
+
+/* bigool feature */
+.feature{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:56px;align-items:center;margin-bottom:96px}
+.feature p{margin:0 0 .9em;font-size:19px}
+.feature .lead{font-size:23px;line-height:1.45;font-weight:500}
+@media(max-width:860px){.feature{grid-template-columns:1fr}.phone{justify-self:center}}
+.phone{width:280px;height:560px;border-radius:44px;background:var(--ink);padding:12px;box-shadow:0 40px 70px -30px rgba(11,20,51,.6);transform:rotate(3deg);transition:transform .35s cubic-bezier(.3,.8,.3,1)}
+.phone:hover{transform:rotate(0deg) translateY(-6px)}
+.screen{width:100%;height:100%;border-radius:34px;overflow:hidden;background:#F4F7FF;display:flex;flex-direction:column}
+.appbar{padding:22px 18px 12px;background:#fff;border-bottom:1px solid #DCE3F5}
+.appbar b{display:block;font:900 26px/1 var(--disp);text-transform:uppercase}
+.appbar small{font-size:12.5px;color:var(--ink2)}
+.map{flex:1;position:relative}
+.map svg{position:absolute;inset:0;width:100%;height:100%}
+.sheet{margin:10px;padding:12px 14px;border-radius:16px;background:#fff;box-shadow:0 8px 20px -10px rgba(11,20,51,.35);font-size:13.5px;line-height:1.4}
+.sheet b{display:flex;align-items:center;gap:8px;font-size:14.5px}
+.sheet b::before{content:"";width:9px;height:9px;border-radius:50%;background:#1F9D55}
+
+/* ---------- kernel case ---------- */
+.ap-intro{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:24px 56px;margin-bottom:72px}
+.ap-intro .lead{font-size:24px;line-height:1.42;font-weight:500;margin:0}
+.ap-intro p{margin:0 0 .8em}
+@media(max-width:860px){.ap-intro{grid-template-columns:1fr}}
+.case-wrap{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:56px;align-items:start;margin-bottom:96px}
+@media(max-width:960px){.case-wrap{grid-template-columns:1fr}}
+.case{list-style:none;counter-reset:step;margin:0;padding:0}
+.case li{counter-increment:step;display:grid;grid-template-columns:76px minmax(0,1fr);gap:0 18px;padding:0 0 34px}
+.case li::before{content:counter(step);font:900 64px/.8 var(--disp);color:var(--amber)}
+.case h3{margin:0 0 6px;font:900 34px/.95 var(--disp);text-transform:uppercase}
+.case p{margin:0}
+.rig{margin:0;position:sticky;top:40px;border:2px solid var(--light);border-radius:18px;padding:22px;background:rgba(8,12,38,.35)}
+@media(max-width:960px){.rig{position:static}}
+.rig h4{margin:0 0 14px;font-weight:700;font-size:15px;color:var(--light2)}
+.tiers{display:grid;gap:26px;margin-bottom:24px}
+.tier{position:relative;border:2px solid var(--light);border-radius:12px;padding:12px 16px;display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.tier b{font:900 28px/1 var(--disp);text-transform:uppercase}
+.tier small{font-size:14px;color:var(--light2);text-align:right}
+.tier:not(:last-child)::after{content:"";position:absolute;left:50%;bottom:-24px;width:2px;height:20px;background:var(--light)}
+.tier.hot{background:var(--amber);border-color:var(--amber);color:var(--ink)}
+.tier.hot small{color:var(--ink);font-weight:600}
+.cores{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;margin:6px 0 12px}
+.cores i{aspect-ratio:1;border-radius:5px;border:1.5px solid rgba(234,240,255,.45)}
+.cores i.on{background:var(--amber);border-color:var(--amber)}
+.rig figcaption{font-size:15px;color:var(--light2)}
+
+/* ---------- live 3D stack ---------- */
+@property --gap{syntax:"<length>";inherits:true;initial-value:58px}
+.stage{position:relative;height:540px;perspective:1500px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.rig3d{position:relative;width:250px;height:250px;margin-top:210px;transform-style:preserve-3d;--gap:58px;--rx:56deg;--rz:-42deg;
+  transform:rotateX(var(--rx)) rotateZ(var(--rz));transition:--gap .7s cubic-bezier(.2,.8,.2,1),transform .3s ease-out}
+.stage:hover .rig3d,.rig3d:focus-within{--gap:76px}
+.plane{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:8px 14px;border-radius:16px;text-decoration:none;color:var(--ink);
+  transform:translateZ(calc(var(--gap) * var(--k)));border:1.5px solid rgba(11,20,51,.45);
+  background-image:linear-gradient(rgba(11,20,51,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(11,20,51,.08) 1px,transparent 1px);background-size:25px 25px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.25) inset,0 18px 30px -18px rgba(11,20,51,.6);transition:filter .2s,box-shadow .2s,transform .35s cubic-bezier(.25,.9,.3,1.25)}
+.plane b{font:900 23px/1 var(--disp);text-transform:uppercase}
+.plane span{font-size:11.5px;font-weight:600;margin-top:2px;opacity:.85;white-space:nowrap}
+.plane:hover,.plane:focus-visible{filter:brightness(1.12);box-shadow:0 0 0 3px var(--amber),0 0 36px rgba(255,176,0,.55);transform:translateZ(calc(var(--gap) * var(--k) + 26px)) scale(1.16)}
+.p0{background-color:rgba(18,27,78,.94);color:var(--light)}.p1{background-color:rgba(42,60,143,.9);color:var(--light)}
+.p2{background-color:rgba(95,127,219,.86)}.p3{background-color:rgba(148,176,242,.84)}.p4{background-color:rgba(185,206,250,.82)}.p5{background-color:rgba(220,231,255,.8)}
+.p0::after{content:"";position:absolute;inset:-6px;border-radius:20px;border:2px solid var(--amber);opacity:0;animation:hit 3.6s ease-out infinite}
+@keyframes hit{0%,38%{opacity:0;transform:scale(.96)}45%{opacity:1;transform:scale(1)}70%,100%{opacity:0;transform:scale(1.06)}}
+.pkt{position:absolute;width:11px;height:11px;margin:-5.5px;border-radius:50%;background:#FFC53D;pointer-events:none;
+  box-shadow:0 0 10px 3px rgba(255,176,0,.85),0 0 26px 8px rgba(255,176,0,.35);left:var(--x);top:var(--y);opacity:0;
+  animation:trip 3.6s cubic-bezier(.55,0,.45,1) infinite;animation-delay:var(--d)}
+@keyframes trip{
+  0%{transform:translateZ(calc(var(--gap) * 5 + 40px)) rotateZ(calc(var(--rz) * -1)) rotateX(calc(var(--rx) * -1));opacity:0}
+  8%{opacity:1}
+  44%,52%{transform:translateZ(6px) rotateZ(calc(var(--rz) * -1)) rotateX(calc(var(--rx) * -1));opacity:1}
+  92%{opacity:1}
+  100%{transform:translateZ(calc(var(--gap) * 5 + 40px)) rotateZ(calc(var(--rz) * -1)) rotateX(calc(var(--rx) * -1));opacity:0}}
+.stagecap{margin:auto 0 0;font-size:14px;color:var(--ink2);text-align:center;max-width:26em}
+@media(max-width:900px){.stage{height:480px}.rig3d{width:210px;height:210px;margin-top:190px;--gap:50px}.stage:hover .rig3d{--gap:66px}.plane b{font-size:20px}}
+
+/* kernel figure: example label */
+.eg{display:inline-block;margin:0 0 12px;padding:3px 11px;border-radius:999px;background:rgba(255,176,0,.16);border:1px solid rgba(255,176,0,.55);color:var(--amber);font-weight:700;font-size:13px}
+.egnote{margin:12px 0 0;padding-top:12px;border-top:1px solid rgba(234,240,255,.2);font-size:14.5px;color:var(--light)}
+
+/* kernel figure switch */
+.rigtop{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}
+.rigtop h4{margin:0}
+.switch{display:inline-flex;border:1.5px solid var(--light);border-radius:999px;overflow:hidden}
+.switch button{border:0;background:transparent;color:var(--light);font:600 13.5px var(--text);padding:6px 14px;cursor:pointer}
+.switch button[aria-pressed="true"]{background:var(--amber);color:var(--ink)}
+.tier{transition:background .35s,color .35s,border-color .35s,transform .2s}
+.tier.ok{border-color:#59D98E}
+.tier.ok small{color:#59D98E;font-weight:600}
+.cores i{transition:background .25s,border-color .25s,box-shadow .25s}
+.cores i.on{box-shadow:0 0 10px rgba(255,176,0,.6)}
+
+/* striped section headings */
+.lh h2{background:linear-gradient(180deg,var(--ink) 0 20%,#16224F 20% 40%,#1E2C77 40% 60%,#2F45A0 60% 80%,#4762C6 80%);background-size:100% 100%;
+  -webkit-background-clip:text;background-clip:text;color:transparent;transition:background-size .5s cubic-bezier(.3,.8,.3,1)}
+.dark .lh h2{background-image:linear-gradient(180deg,#FFFFFF 0 20%,#E3E9FF 20% 40%,#C7D3FF 40% 60%,#FFD36B 60% 80%,#FFB000 80%)}
+.lh:hover h2{background-size:100% 160%}
+@media(prefers-reduced-motion:reduce){.pkt,.p0::after{animation:none;display:none}.rig3d{transition:none}}
+
+/* ================= cooking harder ================= */
+/* opening sequence: name wipes up, stack builds from the kernel */
+.name{animation:wipe 1.1s cubic-bezier(.2,.8,.2,1) both}
+@keyframes wipe{from{clip-path:inset(100% 0 0 0);transform:translateY(40px)}to{clip-path:inset(-10% 0 -10% 0);transform:none}}
+.kicker,.introtext{animation:rise 1s cubic-bezier(.2,.8,.2,1) both}
+.kicker{animation-delay:.05s}.introtext{animation-delay:.35s}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.plane{animation:drop 1s cubic-bezier(.2,.85,.25,1) backwards;animation-delay:calc(600ms + var(--k) * 120ms)}
+@keyframes drop{from{transform:translateZ(calc(var(--gap) * var(--k) + 320px));opacity:0}}
+
+/* aura behind the stack */
+.stage::before{content:"";position:absolute;inset:-6% -14% 4%;z-index:-1;pointer-events:none;
+  background:radial-gradient(38% 34% at 52% 58%,rgba(95,127,219,.42),transparent 72%),radial-gradient(26% 24% at 38% 76%,rgba(255,176,0,.30),transparent 72%),radial-gradient(24% 22% at 70% 30%,rgba(148,176,242,.45),transparent 72%);
+  filter:blur(14px);animation:aura 9s ease-in-out infinite alternate}
+@keyframes aura{from{transform:translate(-3%,2%) scale(1)}to{transform:translate(3%,-3%) scale(1.08)}}
+
+/* strata edges between layers */
+.edge{position:absolute;left:0;right:0;top:-46px;height:48px;background:inherit;z-index:1;pointer-events:none;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 48' preserveAspectRatio='none'%3E%3Cpath d='M0 48V30C90 14 170 8 270 16S450 40 560 34 760 6 880 10s220 30 330 28 170-22 230-26V48Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat;
+          mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 48' preserveAspectRatio='none'%3E%3Cpath d='M0 48V30C90 14 170 8 270 16S450 40 560 34 760 6 880 10s220 30 330 28 170-22 230-26V48Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat}
+.edge.flip{transform:scaleX(-1)}
+
+/* packets of light moving through every pipeline */
+.flow li.pass{box-shadow:0 0 0 3px var(--amber),0 0 24px 2px rgba(255,176,0,.65);transform:translateY(-2px)}
+.flow li:not(:last-child).pass::after{background:var(--amber);box-shadow:0 0 8px var(--amber)}
+.flow li:not(:last-child).pass::before{border-left-color:var(--amber)}
+
+/* bigool route draws itself */
+.route{stroke-dasharray:640;stroke-dashoffset:640;animation:draw 5.5s cubic-bezier(.45,0,.3,1) infinite}
+@keyframes draw{0%{stroke-dashoffset:640}55%,88%{stroke-dashoffset:0}100%{stroke-dashoffset:-640}}
+
+/* flowing stripes in the closing line */
+.end{background:repeating-linear-gradient(180deg,var(--light) 0 22%,#C7D3FF 22% 30%,var(--amber) 30% 52%,#FFD36B 52% 60%) 0 0/100% 200%;
+  -webkit-background-clip:text;background-clip:text;color:transparent;animation:flowy 9s linear infinite}
+@keyframes flowy{to{background-position:0 -200%}}
+
+/* buttons lean toward the cursor */
+.btn{translate:var(--tx,0) var(--ty,0);transition:background .18s,color .18s,border-color .18s,transform .18s,translate .25s cubic-bezier(.3,.8,.3,1)}
+
+@media(prefers-reduced-motion:reduce){
+  .name,.kicker,.introtext,.plane,.stage::before,.route,.end{animation:none}
+  .route{stroke-dasharray:none;stroke-dashoffset:0}
+}
+
+/* ---------- credentials band (hero) ---------- */
+.creds{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin:0 0 72px}
+.creds h2{margin:0 0 10px;padding-top:14px;border-top:5px solid var(--ink);font:900 30px/.95 var(--disp);text-transform:uppercase}
+.creds dl{margin:0}
+.creds dt{font-weight:700;font-size:16.5px;line-height:1.35;margin-top:14px}
+.creds dd{margin:3px 0 0;font-size:15.5px;line-height:1.45;color:var(--ink2)}
+@media(max-width:860px){.creds{grid-template-columns:1fr;gap:28px}}
+
+/* ---------- bedrock ---------- */
+.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px}
+@media(max-width:860px){.cols{grid-template-columns:1fr}}
+.cols h3{margin:0 0 16px;font:900 36px/.95 var(--disp);text-transform:uppercase;padding-top:16px;border-top:6px solid var(--light)}
+.cols dl{margin:0}
+.cols dt{font-weight:700;margin-top:16px}
+.cols dd{margin:2px 0 0;color:var(--light2)}
+
+/* ---------- contact ---------- */
+.end{font:900 clamp(78px,14vw,200px)/.82 var(--disp);text-transform:uppercase;margin:0 0 30px;
+  background:linear-gradient(180deg,var(--light) 0 50%,var(--amber) 50%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.endp{font-size:22px;max-width:30em;margin:0 0 30px}
+footer{margin-top:110px;padding-top:22px;border-top:1px solid rgba(234,240,255,.25);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14.5px;color:var(--light2)}
+
+/* ---------- depth gauge ---------- */
+.gauge{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:20;display:flex;flex-direction:column;gap:14px;align-items:flex-end;color:var(--ink);transition:color .3s}
+.gauge a{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;font-size:13.5px}
+.gauge a span{opacity:0;transform:translateX(6px);transition:opacity .2s,transform .2s;white-space:nowrap}
+.gauge a i{width:10px;height:10px;border-radius:50%;border:2px solid currentColor;transition:background .2s,transform .2s}
+.gauge a.on span,.gauge a:hover span,.gauge a:focus-visible span{opacity:1;transform:none}
+.gauge a.on i{background:var(--amber);border-color:var(--amber);transform:scale(1.35)}
+body.under .gauge{color:var(--light)}
+@media(max-width:1260px){.gauge{display:none}}
+
+/* ---------- living grid: lights up under the pointer ---------- */
+.s,.surface{position:relative;isolation:isolate;--grid:rgba(11,20,51,.06);--lit:rgba(42,60,143,.95);--wash:rgba(95,127,219,.26)}
+.s.dark{--grid:rgba(234,240,255,.07);--lit:rgba(255,176,0,1);--wash:rgba(255,176,0,.22)}
+.s::before,.surface::before,.s::after,.surface::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none}
+.s::before,.surface::before{background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:44px 44px;background-position:-1px -1px}
+.s::after,.surface::after{
+  background-image:radial-gradient(240px circle at var(--mx,-999px) var(--my,-999px),var(--wash),transparent 75%),linear-gradient(var(--lit) 1px,transparent 1px),linear-gradient(90deg,var(--lit) 1px,transparent 1px);
+  background-size:auto,44px 44px,44px 44px;background-position:0 0,-1px -1px,-1px -1px;
+  -webkit-mask-image:radial-gradient(260px circle at var(--mx,-999px) var(--my,-999px),#000 0,rgba(0,0,0,.6) 40%,transparent 75%);
+          mask-image:radial-gradient(260px circle at var(--mx,-999px) var(--my,-999px),#000 0,rgba(0,0,0,.6) 40%,transparent 75%);
+  opacity:0;transition:opacity .35s}
+.s.lit::after,.surface.lit::after{opacity:1}
+
+/* ---------- hover feedback ---------- */
+.flow li{transition:transform .18s,background .18s,box-shadow .18s}
+.flow li:hover{transform:translateY(-3px);background:var(--amber);box-shadow:0 8px 18px -8px rgba(11,20,51,.5)}
+.case li::before{transition:transform .25s cubic-bezier(.3,.8,.3,1),color .25s}
+.case li:hover::before{transform:translateY(-6px) scale(1.08);color:#FFD36B}
+.item{transition:border-color .25s}
+.item:hover{border-top-color:var(--amber)}
+.dark .item:hover{border-top-color:var(--amber)}
+.creds h2{transition:border-color .25s}
+.creds>div:hover h2{border-top-color:var(--amber)}
+.tier{transition:transform .2s}
+.tier:hover{transform:translateX(6px)}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}.bar{animation:none}.phone,.btn,.bar{transition:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="gauge" aria-label="Depth">
+  <a href="#top" data-s="top"><span>Surface</span><i></i></a>
+  <a href="#kernel" data-s="kernel"><span>Kernel</span><i></i></a>
+  <a href="#data" data-s="data"><span>Data + ML</span><i></i></a>
+  <a href="#services" data-s="services"><span>Services</span><i></i></a>
+  <a href="#screen" data-s="screen"><span>Screen</span><i></i></a>
+</nav>
+
+<header class="surface" id="top">
+  <div class="wrap">
+    <div class="top">
+      <span>Atharv Naik</span>
+      <nav aria-label="Links">
+        <a href="resume.pdf" download>Résumé</a>
+        <a href="https://github.com/atharv3903/" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/atharv-naik-427a4b315/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="mail" href="#contact">Email</a>
+      </nav>
+    </div>
+
+    <p class="kicker">Software engineer. M.Tech in Computer Science at IIT Bombay.</p>
+    <h1 class="name"><span>Atharv</span><span>Naik</span></h1>
+
+    <div class="intro">
+      <div class="introtext">
+        <p class="tagline">I build software from the kernel up to the screen.</p>
+        <p class="blurb">At IIT Bombay, my research automates the hunt for why software runs slow on fast hardware. Outside the lab, I have shipped an app to Google Play, built backends in Go, Python and PHP, and put LLMs to work in real products.</p>
+        <div class="btns">
+          <a class="btn" href="resume.pdf" download>Download résumé</a>
+          <a class="btn ghost mail" href="#contact">Email me</a>
+        </div>
+      </div>
+      <div class="stage" id="stage">
+        <div class="rig3d" id="rig" role="navigation" aria-label="The stack, layer by layer">
+          <a class="plane p0" href="#kernel" style="--k:0"><b>Kernel</b><span>AutoPerf++</span></a>
+          <a class="plane p1" href="#kernel" style="--k:1"><b>Runtime</b><span>Load testing</span></a>
+          <a class="plane p2" href="#data" style="--k:2"><b>Models</b><span>Right-size, NewsSense AI</span></a>
+          <a class="plane p3" href="#data" style="--k:3"><b>Data</b><span>JobScoutAI</span></a>
+          <a class="plane p4" href="#services" style="--k:4"><b>Services</b><span>Graphion, eReleGo</span></a>
+          <a class="plane p5" href="#screen" style="--k:5"><b>Screen</b><span>Bigool, RescueConnect</span></a>
+        </div>
+        <p class="stagecap">Requests travelling through my stack. Hover to pull it apart, select a layer to jump there.</p>
+      </div>
+    </div>
+
+    <section class="creds" aria-label="Highlights">
+      <div>
+        <h2>Education</h2>
+        <dl>
+          <dt>M.Tech, Computer Science and Engineering</dt><dd>IIT Bombay, 2025 to 2027</dd>
+          <dt>B.Tech, Computer Science and Engineering, Honors in AI and ML</dt><dd>KIT's College of Engineering, Kolhapur, 2021 to 2025</dd>
+        </dl>
+      </div>
+      <div>
+        <h2>Positions</h2>
+        <dl>
+          <dt>TA, Indexing and Retrieving Text and Graphs</dt><dd>IIT Bombay, with Prof. Soumen Chakrabarti, 2025 to now</dd>
+          <dt>TA, Computer Programming and Utilization</dt><dd>Two semesters, with Prof. Rohit Gurjar and Prof. Ashutosh Kumar</dd>
+          <dt>Student Companion, ISCP</dt><dd>Selected by interview to mentor first-year students</dd>
+        </dl>
+      </div>
+      <div>
+        <h2>Recognition</h2>
+        <dl>
+          <dt>Amazon ML Summer School 2024</dt><dd>Selected nationally for an intensive on LLMs, deep learning and reinforcement learning</dd>
+          <dt>NCC 'A' Certificate</dt><dd>2 Maharashtra Naval Unit</dd>
+          <dt>PIONEER 2023</dt><dd>National coding competition, ISTE</dd>
+        </dl>
+      </div>
+    </section>
+
+    <div class="corebox">
+      <div class="corehead">
+        <p><b>Everything I have built, by the layers it reaches.</b> Each bar spans the parts of the stack a project touches. Select one to read about it.</p>
+        <div class="legend" aria-hidden="true"><span><i class="k-research"></i>Research</span><span><i class="k-course"></i>IIT Bombay</span><span><i class="k-intern"></i>Internship</span><span><i class="k-self"></i>Self-built</span></div>
+      </div>
+      <div class="scroller"><div class="core" id="core" role="group" aria-label="Projects by stack layer"></div></div>
+      <div class="readout" aria-live="polite">
+        <div><h3 id="r-n"></h3><p class="span" id="r-s"></p><p id="r-d"></p></div>
+        <a class="btn ghost" id="r-l" href="#autoperf">See the project</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ======================= KERNEL ======================= -->
+<section class="s dark" id="kernel" aria-labelledby="h-kernel">
+  <div class="wrap">
+    <div class="lh">
+      <p class="lvl">The bottom of the stack</p>
+      <h2 id="h-kernel">Kernel</h2>
+      <p class="what">Where I do my research, and where most people stop looking.</p>
+    </div>
+
+    <div class="ap-intro" id="autoperf">
+      <div>
+        <h3 class="pt">Extending AutoPerf++</h3>
+        <p class="kind">M.Tech Project I, July 2026 to now. SynerG Lab, IIT Bombay, guided by Prof. Varsha Apte.</p>
+        <p class="lead">AutoPerf++ finds performance bottlenecks in networked applications automatically, without an expert reading profiles for days.</p>
+      </div>
+      <div>
+        <p>I am building its kernel profiling engine and a new subsystem that discovers an application's TCP sockets on its own, starting from a single port. Both run parallel strace workers so that finding a bottleneck becomes a command, not a project.</p>
+        <p>The best way to show what that means is an example. Here is one real case it cracked open.</p>
+      </div>
+    </div>
+
+    <div class="case-wrap">
+      <ol class="case">
+        <li><div><h3>Build a real testbed</h3><p>I moved the evaluation from a simple single-tier app to the TechEmpower Fortunes benchmark: Nginx in front of Gunicorn in front of PostgreSQL, on a large many-core server with a separate load generator.</p></div></li>
+        <li><div><h3>Hit a strange ceiling</h3><p>AutoPerf++'s automatic load search, which I had made reliable at high throughput, found a hard limit. Requests piled up, yet most of the server's cores were doing nothing.</p></div></li>
+        <li><div><h3>Listen to the kernel</h3><p>I traced system calls on every tier, found automatically by following socket connections from port 80, and compared each process's calm and loaded behaviour with TF-IDF and cosine similarity. Gunicorn's pattern changed dramatically. PostgreSQL's barely moved.</p></div></li>
+        <li><div><h3>Do the maths</h3><p>Gunicorn was running a single synchronous worker. Each worker opens its own pool of database connections, so I worked out the largest worker count PostgreSQL's connection limit could take without refusing clients.</p></div></li>
+        <li><div><h3>Prove it</h3><p>Scaling to that worker count woke the idle cores, multiplied capacity, and pulled Gunicorn's system calls back towards normal. I wrote playbooks so anyone can reproduce the fix or revert it.</p></div></li>
+      </ol>
+      <figure class="rig" aria-label="The server before and after the fix">
+        <p class="eg">One example case</p>
+        <div class="rigtop"><h4 id="rig-h">Before the fix</h4>
+          <div class="switch" role="group" aria-label="Server state"><button type="button" id="sw-b" aria-pressed="true">Before</button><button type="button" id="sw-a" aria-pressed="false">After</button></div>
+        </div>
+        <div class="tiers">
+          <div class="tier"><b>Nginx</b><small>proxy</small></div>
+          <div class="tier hot" id="gtier"><b>Gunicorn</b><small id="gnote">one worker, starved</small></div>
+          <div class="tier"><b>PostgreSQL</b><small>healthy</small></div>
+        </div>
+        <div class="cores" id="cores" aria-hidden="true"></div>
+        <figcaption id="rig-c">Each square is a CPU core on the server, live. Before the fix, a handful were busy and the rest sat idle while requests waited in line.</figcaption>
+        <p class="egnote">Just one of the problems AutoPerf++ can catch. The tool works on any networked application, and this case is simply a fun one to show.</p>
+      </figure>
+    </div>
+
+    <div class="items">
+      <article class="item">
+        <h3 class="pt">Faster load testing</h3>
+        <p class="kind">M.Tech R&amp;D Project II, January to May 2026</p>
+        <p>Load tests in AutoPerf++ kept repeating work and stalling at high user counts. I added a concurrency-aware result cache that skips duplicate runs, which made tests converge about three times faster, and replaced a fixed stopping rule with a relative tolerance so they stop stalling.</p>
+        <p class="tech">Python, Taurus, closed-loop load generation</p>
+      </article>
+      <article class="item">
+        <h3 class="pt">Survey of the field</h3>
+        <p class="kind">M.Tech Seminar, January to May 2026</p>
+        <p>I compared the published tools for finding scalability bottlenecks, including Speedup Stacks, ScaAnalyzer and Whodunnit, and traced why multi-core software stops scaling: memory bus saturation, cache interference between cores, and undersized thread pools.</p>
+        <p class="tech">System-call traces, hardware performance counters</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= DATA AND MODELS ======================= -->
+<section class="s" id="data" aria-labelledby="h-data">
+  <div class="wrap">
+    <div class="lh">
+      <p class="lvl">One level up</p>
+      <h2 id="h-data">Data + ML</h2>
+      <p class="what">Pipelines that collect the mess and models that make sense of it.</p>
+    </div>
+    <div class="items">
+      <article class="item wide" id="newssense">
+        <h3 class="pt">NewsSense AI</h3>
+        <p class="kind">Self project. An AI desk for a regional newsroom.</p>
+        <p>Reporters send in photos of handwritten or printed reports. NewsSense reads the text from the image, drafts a proper news story with an LLM, and translates it into Marathi or Hindi for regional editions. It sits on the same platform as Bigool, so editors can also see where their field reporters are.</p>
+        <ol class="flow" aria-label="Pipeline">
+          <li>Photo of a report</li><li>OCR with Tesseract</li><li class="hot">LLM drafts the story</li><li>Marathi and Hindi translation</li><li>Editor's dashboard</li>
+        </ol>
+        <p class="tech">PHP, MySQL, Tesseract, OpenAI and Gemini APIs</p>
+      </article>
+      <article class="item" id="jobscout">
+        <h3 class="pt">JobScoutAI</h3>
+        <p class="kind">Full-stack platform, 2025. Software Systems Lab.</p>
+        <p>Job listings are scattered, duplicated and inconsistent. JobScoutAI scrapes them, cleans and de-duplicates them into a market dataset, computes live insights such as heatmaps and seniority mixes, and lets you ask questions in plain English.</p>
+        <ol class="flow" aria-label="Pipeline">
+          <li>Selenium scraper</li><li>MongoDB</li><li>Flask analytics</li><li class="hot">Gemini Q and A</li><li>React dashboard</li>
+        </ol>
+        <p class="tech">Python, Selenium, MongoDB, Flask, React, Vite, Chart.js, Tailwind</p>
+      </article>
+      <article class="item" id="sizing">
+        <h3 class="pt">Right-size</h3>
+        <p class="kind">Performance modelling, 2025. Performance Analysis of Computer Systems.</p>
+        <p>How small can a server's container be before users notice? I sampled CPU, memory and I/O limits efficiently, ran hundreds of automated load tests, trained and compared five regression models, and built a tool that recommends the cheapest size that still meets a response-time target.</p>
+        <ol class="flow" aria-label="Pipeline">
+          <li>Sample configs</li><li>Docker</li><li>httperf load tests</li><li class="hot">Regression models</li><li>Cheapest safe size</li>
+        </ol>
+        <p class="tech">Python, Docker, httperf, scikit-learn, XGBoost</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SERVICES ======================= -->
+<section class="s" id="services" aria-labelledby="h-services">
+  <div class="wrap">
+    <div class="lh">
+      <p class="lvl">Higher still</p>
+      <h2 id="h-services">Services</h2>
+      <p class="what">The backends that answer when the screen asks.</p>
+    </div>
+    <div class="items">
+      <article class="item wide" id="graphion">
+        <h3 class="pt">Graphion</h3>
+        <p class="kind">Routing engine in Go, built at IIT Bombay in 2025 for Design and Engineering of Computing Systems.</p>
+        <p>A server that answers shortest-path questions over real road networks while many clients ask at once. Two layers of cache answer most repeat queries without touching the database, and the load generator measures tail latency, so slow outliers have nowhere to hide.</p>
+        <ol class="flow" aria-label="Request path">
+          <li>Load generator</li><li>Go HTTP server</li><li class="hot">Adjacency and route caches</li><li>Dijkstra with early exit</li><li>MySQL</li>
+        </ol>
+        <p class="tech">Go, MySQL, LRU caching, thread-safe data structures</p>
+      </article>
+      <article class="item" id="erelego">
+        <h3 class="pt">eReleGo</h3>
+        <p class="kind">Software development intern, January to May 2025</p>
+        <p>Newspapers were laying out pages by hand from raw news feeds. In a small team, I helped build the pipeline that does it automatically. My part was the text engine that survives any character encoding and layout rule, and the background jobs and caching that hand finished pages to Adobe InDesign.</p>
+        <ol class="flow" aria-label="Pipeline">
+          <li>News feeds</li><li class="hot">Text normaliser</li><li>IDML layout</li><li>InDesign</li>
+        </ol>
+        <p class="tech">PHP, MySQL, IDML</p>
+      </article>
+      <article class="item" id="algo">
+        <h3 class="pt">Trading bot</h3>
+        <p class="kind">Self project in Python</p>
+        <p>A bot that signs in to a stockbroker's API with two-factor authentication, watches prices on a schedule, and places bracket orders with the stop-loss and target attached. I built it to learn how real order systems, rate limits and slow APIs behave when money is on the line.</p>
+        <ol class="flow" aria-label="Loop">
+          <li>Sign in</li><li>Fetch prices</li><li class="hot">Decide</li><li>Place bracket order</li>
+        </ol>
+        <p class="tech">Python, Angel One SmartAPI, pandas, threading</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SCREEN ======================= -->
+<section class="s" id="screen" aria-labelledby="h-screen">
+  <div class="wrap">
+    <div class="lh">
+      <p class="lvl">The top of the stack</p>
+      <h2 id="h-screen">Screen</h2>
+      <p class="what">Things people hold in their hands and rely on.</p>
+    </div>
+
+    <article class="feature" id="bigool">
+      <div>
+        <h3 class="pt">Bigool</h3>
+        <p class="kind">Android app and web platform, 2023. Live on Google Play.</p>
+        <p class="lead">Companies with staff out in the field needed to know where their people were, confirm attendance, and pay travel claims without paperwork.</p>
+        <p>I built the Android app and its backend. The app tracks location in the background without draining the battery, sampling more often when you move and less when you stand still. Attendance is a selfie checked against the site's geofence, so nobody can mark in for a friend. When the signal drops, everything is buffered on the phone and synced the moment the network comes back. Distance travelled is calculated from the GPS trail with jitter filtered out, which turns mileage claims into a report instead of an argument.</p>
+        <p>Managers watch it live and replay past routes on the web dashboard at bigool.in.</p>
+        <p class="tech">Java, Android foreground services, Fused Location, SQLite, PHP, MySQL, Leaflet</p>
+        <p class="links"><a href="https://play.google.com/store/apps/details?id=in.bigool.geo" target="_blank" rel="noopener">Get it on Google Play</a><a href="https://bigool.in" target="_blank" rel="noopener">bigool.in</a></p>
+      </div>
+      <div class="phone" aria-hidden="true">
+        <div class="screen">
+          <div class="appbar"><b>Bigool</b><small>Today's route</small></div>
+          <div class="map">
+            <svg viewBox="0 0 256 330" preserveAspectRatio="xMidYMid slice">
+              <rect width="256" height="330" fill="#E8EEFC"/>
+              <g fill="#D3DDF5"><rect x="14" y="14" width="70" height="56" rx="6"/><rect x="100" y="14" width="64" height="90" rx="6"/><rect x="180" y="14" width="64" height="48" rx="6"/><rect x="14" y="86" width="70" height="80" rx="6"/><rect x="180" y="78" width="64" height="100" rx="6"/><rect x="100" y="120" width="64" height="70" rx="6"/><rect x="14" y="182" width="70" height="60" rx="6"/><rect x="100" y="206" width="144" height="50" rx="6"/><rect x="14" y="258" width="150" height="60" rx="6"/><rect x="180" y="272" width="64" height="46" rx="6"/></g>
+              <path d="M7 0V330M92 0V330M172 0V330M0 78H256M0 198H256M0 264H256" stroke="#fff" stroke-width="10"/>
+              <circle cx="212" cy="125" r="34" fill="#1F9D55" opacity=".14" stroke="#1F9D55" stroke-dasharray="4 4"/>
+              <path d="M30 300 L92 300 L92 198 L172 198 L172 78 L212 78 L212 125" fill="none" stroke="#FFB000" stroke-opacity=".25" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path class="route" d="M30 300 L92 300 L92 198 L172 198 L172 78 L212 78 L212 125" fill="none" stroke="#FFB000" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><circle r="7" fill="#fff" stroke="#FFB000" stroke-width="4"><animateMotion dur="5.5s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.55;1" calcMode="linear" path="M30 300 L92 300 L92 198 L172 198 L172 78 L212 78 L212 125"/></circle>
+              <g fill="#0B1433"><circle cx="60" cy="300" r="3.5"/><circle cx="92" cy="250" r="3.5"/><circle cx="130" cy="198" r="3.5"/><circle cx="172" cy="140" r="3.5"/><circle cx="194" cy="78" r="3.5"/></g>
+              <circle cx="30" cy="300" r="9" fill="#fff" stroke="#0B1433" stroke-width="4"/>
+              <circle cx="212" cy="125" r="11" fill="#0B1433"/><circle cx="212" cy="125" r="4.5" fill="#FFB000"/>
+            </svg>
+          </div>
+          <div class="sheet"><b>Checked in at site</b>Selfie verified inside the geofence. Route synced.</div>
+        </div>
+      </div>
+    </article>
+
+    <div class="items">
+      <article class="item" id="rescue">
+        <h3 class="pt">RescueConnect</h3>
+        <p class="kind">Android app, 2023</p>
+        <p>In an emergency, every second spent explaining where you are is wasted. One tap in RescueConnect sends a high-priority alert carrying your exact location to responders and contacts, who see it plotted live on a map. Every alert is logged, so there is a record to review afterwards.</p>
+        <p class="tech">Java, Firebase Cloud Messaging, Firestore, Google Maps SDK</p>
+        <p class="links"><a href="https://github.com/atharv3903/RescueConnect" target="_blank" rel="noopener">Source on GitHub</a></p>
+      </article>
+      <article class="item">
+        <h3 class="pt">The dashboards</h3>
+        <p class="kind">React, and plain web when that is enough</p>
+        <p>Several of the projects above end in an interface: a React and Chart.js dashboard for job-market data, a newsroom tool where editors turn photos into stories, and Bigool's live map for managers. I like the part where the data finally becomes something a person can act on.</p>
+        <p class="links"><a href="#jobscout">JobScoutAI</a><a href="#newssense">NewsSense AI</a></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CONTACT ======================= -->
+<section class="s dark" id="contact" aria-labelledby="h-contact">
+  <div class="wrap">
+    <h2 class="end" id="h-contact">That's the whole stack.</h2>
+    <p class="endp">I am looking for software engineering roles in backend, systems, full-stack and ML. If you have something worth building, I would like to hear about it.</p>
+    <div class="btns">
+      <a class="btn mail" href="#contact">Email me</a>
+      <a class="btn ghost" href="resume.pdf" download>Download résumé</a>
+      <a class="btn ghost" href="https://github.com/atharv3903/" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/atharv-naik-427a4b315/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <footer><span>Atharv Naik, 2026</span><span>Hand-built from scratch. No templates, no frameworks.</span></footer>
+  </div>
+</section>
+</main>
+
+<script>
+(function(){
+"use strict";
+function $(s){return document.querySelector(s)}
+function $$(s){return Array.prototype.slice.call(document.querySelectorAll(s))}
+
+/* email, assembled at runtime so scrapers don't harvest it */
+var addr=["atharvnaik2003","gmail.com"].join("@");
+$$(".mail").forEach(function(a){ a.href="mailto:"+addr+"?subject=Hello%20Atharv"; });
+
+/* core-sample chart */
+var L=["Kernel","Runtime","Models","Data","Services","Screen"];
+var K={research:"M.Tech research",course:"IIT Bombay project",intern:"Internship",self:"Self-built"};
+var P=[
+  {id:"autoperf",n:"AutoPerf++",k:"research",a:0,b:2,d:"My M.Tech research: automatically finding why software slows down, from load tests all the way into system calls."},
+  {id:"sizing",n:"Right-size",k:"course",a:1,b:3,d:"Hundreds of automated load tests and five regression models that pick the cheapest server size that still meets a latency target."},
+  {id:"graphion",n:"Graphion",k:"course",a:1,b:4,d:"A Go routing engine over real road networks, with two cache layers and tail-latency load testing."},
+  {id:"algo",n:"Trading bot",k:"self",a:2,b:4,d:"A Python bot that signs in to a broker's API and places bracket orders with the stop-loss attached."},
+  {id:"erelego",n:"eReleGo",k:"intern",a:3,b:4,d:"Internship: the pipeline that turns raw news feeds into print-ready newspaper pages."},
+  {id:"jobscout",n:"JobScoutAI",k:"course",a:2,b:5,d:"Scrapes and cleans job listings, analyses the market, and answers questions in plain English on a React dashboard."},
+  {id:"newssense",n:"NewsSense AI",k:"self",a:2,b:5,d:"Turns photos of news reports into stories with OCR and an LLM, then translates them into Marathi and Hindi."},
+  {id:"rescue",n:"RescueConnect",k:"self",a:3,b:5,d:"One tap sends an emergency alert with your location to responders, plotted live on a map."},
+  {id:"bigool",n:"Bigool",k:"self",a:3,b:5,d:"Field-force tracking platform with an Android app on Google Play and a live web dashboard."}
+];
+var core=$("#core"), sel=null, bars=[];
+L.forEach(function(name,i){
+  var h=document.createElement("div"); h.className="colhd"; h.style.gridColumn=String(i+2); h.textContent=name; core.appendChild(h);
+  var g=document.createElement("div"); g.className="colbg c"+i; g.style.gridColumn=String(i+2); g.style.gridRow="2 / "+(P.length+2); core.appendChild(g);
+});
+P.forEach(function(p,j){
+  var t=document.createElement("div"); t.className="kind2"; t.style.gridRow=String(j+2); t.textContent=K[p.k]; core.appendChild(t);
+  var b=document.createElement("button"); b.type="button"; b.className="bar k-"+p.k;
+  b.style.gridRow=String(j+2); b.style.gridColumn=(p.a+2)+" / "+(p.b+3); b.style.setProperty("--i",j);
+  b.setAttribute("aria-pressed","false"); b.setAttribute("aria-label",p.n+", "+K[p.k]+", "+L[p.a]+" up to "+L[p.b]);
+  b.textContent=p.n;
+  b.addEventListener("click",function(){ choose(p,b); });
+  b.addEventListener("mouseenter",function(){ show(p); });
+  b.addEventListener("focus",function(){ show(p); });
+  core.appendChild(b); bars.push({p:p,el:b});
+});
+function show(p){
+  $("#r-n").textContent=p.n;
+  $("#r-s").textContent=K[p.k]+", spanning "+L[p.a]+" up to "+L[p.b];
+  $("#r-d").textContent=p.d;
+  $("#r-l").setAttribute("href","#"+p.id);
+}
+function choose(p,el){
+  bars.forEach(function(x){ x.el.setAttribute("aria-pressed",String(x.el===el)); });
+  core.classList.add("focus"); sel={p:p,el:el}; show(p);
+}
+/* AutoPerf++ is the default: highlighted, and what the panel returns to */
+bars[0].el.setAttribute("aria-pressed","true"); show(P[0]);
+core.addEventListener("mouseleave",function(){ show(sel?sel.p:P[0]); });
+core.addEventListener("focusout",function(e){ if(!core.contains(e.relatedTarget)) show(sel?sel.p:P[0]); });
+
+/* idle cores in the kernel diagram (illustrative: a few busy, most idle) */
+var reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* live 3D stack: requests travelling through the layers, tilt with the pointer */
+var rig=$("#rig");
+for(var q=0;q<9;q++){
+  var k=document.createElement("i"); k.className="pkt";
+  k.style.setProperty("--x",(18+Math.random()*64)+"%"); k.style.setProperty("--y",(18+Math.random()*64)+"%");
+  k.style.setProperty("--d",(-q*0.4)+"s"); rig.appendChild(k);
+}
+if(!reduce){
+  $(".surface").addEventListener("pointermove",function(e){
+    if(e.pointerType==="touch") return;
+    var x=e.clientX/innerWidth-.5, y=e.clientY/innerHeight-.5;
+    rig.style.setProperty("--rx",(56-y*14)+"deg"); rig.style.setProperty("--rz",(-42+x*22)+"deg");
+  },{passive:true});
+}
+
+/* live server: cores flicker; before/after switch */
+var cores=$("#cores"), cells=[];
+for(var i=0;i<32;i++){ var c=document.createElement("i"); cores.appendChild(c); cells.push(c); }
+var after=false;
+function tick(){
+  var busy=after?24+Math.floor(Math.random()*6):4+Math.floor(Math.random()*4);
+  var idx=cells.map(function(_,i){return i}).sort(function(){return Math.random()-.5}).slice(0,busy);
+  cells.forEach(function(c,i){ c.classList.toggle("on",idx.indexOf(i)>-1); });
+}
+function setAfter(v){
+  after=v; tick();
+  $("#sw-b").setAttribute("aria-pressed",String(!v)); $("#sw-a").setAttribute("aria-pressed",String(v));
+  $("#rig-h").textContent=v?"After the fix":"Before the fix";
+  var g=$("#gtier"); g.classList.toggle("hot",!v); g.classList.toggle("ok",v);
+  $("#gnote").textContent=v?"workers scaled, cores awake":"one worker, starved";
+  $("#rig-c").textContent=v?"Each square is a CPU core on the server, live. After scaling the workers, the cores woke up and the queue drained.":"Each square is a CPU core on the server, live. Before the fix, a handful were busy and the rest sat idle while requests waited in line.";
+}
+/* before/after cycles on its own; a click takes over for a while */
+var holdUntil=0;
+$("#sw-b").addEventListener("click",function(){ holdUntil=Date.now()+9000; setAfter(false); });
+$("#sw-a").addEventListener("click",function(){ holdUntil=Date.now()+9000; setAfter(true); });
+tick();
+if(!reduce){
+  setInterval(tick,420);
+  setInterval(function(){ if(Date.now()>holdUntil) setAfter(!after); },3600);
+}
+
+/* strata edges between sections */
+$$(".s").forEach(function(sec,i){ var e=document.createElement("div"); e.className="edge"+(i%2?" flip":""); e.setAttribute("aria-hidden","true"); sec.insertBefore(e,sec.firstChild); });
+
+/* packets of light moving through each pipeline */
+if(!reduce){
+  $$(".flow").forEach(function(f,n){
+    var lis=Array.prototype.slice.call(f.children), i=n*2;
+    setInterval(function(){ lis.forEach(function(l){l.classList.remove("pass")}); lis[i%lis.length].classList.add("pass"); i++; },650);
+  });
+}
+
+/* buttons lean toward the cursor */
+if(!reduce){
+  $$(".btn").forEach(function(b){
+    b.addEventListener("pointermove",function(e){
+      if(e.pointerType==="touch") return;
+      var r=b.getBoundingClientRect();
+      b.style.setProperty("--tx",((e.clientX-r.left-r.width/2)*.22)+"px");
+      b.style.setProperty("--ty",((e.clientY-r.top-r.height/2)*.35)+"px");
+    });
+    b.addEventListener("pointerleave",function(){ b.style.setProperty("--tx","0px"); b.style.setProperty("--ty","0px"); });
+  });
+}
+
+/* living grid: track the pointer inside whichever section it is over */
+var cur=null, raf=0, last=null;
+function paint(){
+  raf=0; if(!last) return;
+  var el=document.elementFromPoint(last.clientX,last.clientY), sec=el&&el.closest?el.closest(".s, .surface"):null;
+  if(cur && cur!==sec){ cur.classList.remove("lit"); }
+  if(sec){ var r=sec.getBoundingClientRect(); sec.style.setProperty("--mx",(last.clientX-r.left)+"px"); sec.style.setProperty("--my",(last.clientY-r.top)+"px"); sec.classList.add("lit"); }
+  cur=sec;
+}
+addEventListener("pointermove",function(e){ if(e.pointerType==="touch") return; last=e; if(!raf) raf=requestAnimationFrame(paint); },{passive:true});
+document.addEventListener("pointerleave",function(){ if(cur){ cur.classList.remove("lit"); cur=null; } });
+addEventListener("scroll",function(){ if(last && !raf) raf=requestAnimationFrame(paint); },{passive:true});
+
+/* depth gauge: track which stratum is under the middle of the screen */
+var links={}; $$(".gauge a").forEach(function(a){ links[a.getAttribute("data-s")]=a; });
+var darkIds={kernel:1,contact:1};
+var io=new IntersectionObserver(function(es){
+  es.forEach(function(e){
+    if(!e.isIntersecting) return;
+    var id=e.target.id;
+    Object.keys(links).forEach(function(k){ links[k].classList.toggle("on",k===id||(id==="contact"&&k==="screen")); });
+    document.body.classList.toggle("under",!!darkIds[id]);
+  });
+},{rootMargin:"-50% 0px -50% 0px"});
+["top","kernel","data","services","screen","contact"].forEach(function(id){ var el=document.getElementById(id); if(el) io.observe(el); });
+})();
+</script>
+</body>
+</html>
